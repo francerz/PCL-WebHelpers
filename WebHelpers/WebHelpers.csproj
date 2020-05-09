@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.1</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <PackageId>Web Helpers PCL</PackageId>
+    <Authors>Fran CZ</Authors>
+    <Product>Web Helpers PCL</Product>
+    <Description>Portable Class Library with simple and basic tools on the lower dependencies posible to simplify Web interaction</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+  </ItemGroup>
+
+</Project>
