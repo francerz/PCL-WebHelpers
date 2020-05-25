@@ -1,0 +1,25 @@
+FREE TO USE LICENSE, UNDER YOUR OWN RISK
+=======================
+
+> Version 1.0, May 2020
+
+Terms of Use
+-----------------------
+You can use this library to create your own home or school projects, even for some great apps and experiencies to everyone. Just try to keep all free to public, for learning or academic experiences.
+
+1. The library use is free, and should not be selled.
+2. Be kind, and don't use it for malicious content or harm another life form, even if it's death.
+
+Support
+-----------------------
+This package is used to share as a helping tool to crossplatform apps with web interaction, however, there's no support for feature request or bugfixing.
+
+If you want to change the code to make a fix, do it. And if you want share it, it's ok.
+
+Warranty
+-----------------------
+The code may contain errors and serious bugs, there's no warranty to properly working code on all scenarios and may contain security flaws. USE IT UNDER YOUR OWN RISK.
+
+Dependencies
+-----------------------
+The package dependencies aren't owned, and may have their own licensing terms. Review them before use.
