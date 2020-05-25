@@ -36,7 +36,7 @@ namespace WebHelpers.OAuth2
         }
         public DateTime ExpireTime {
             get {
-                return CreateTime + new TimeSpan(Lifetime * 10000000);
+                return CreateTime + new TimeSpan(Lifetime * TimeSpan.TicksPerSecond);
             }
         }
         public TimeSpan ExpiresIn {
@@ -46,7 +46,7 @@ namespace WebHelpers.OAuth2
         }
         public bool IsExpired {
             get {
-                return ExpiresIn.Seconds < 30;
+                return ExpiresIn.TotalSeconds < 30;
             }
         }
     }
