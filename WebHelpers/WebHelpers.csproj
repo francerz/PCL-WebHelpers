@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.6</Version>
+    <Version>0.1.7</Version>
     <PackageId>PCL-WebHelpers</PackageId>
     <Authors>Fran CZ</Authors>
     <Product>PCL-WebHelpers</Product>

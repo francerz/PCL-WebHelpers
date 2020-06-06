@@ -18,7 +18,11 @@ namespace WebHelpers.Uri
 
         public QueryParameters()
         {
-            this.parameters = new Dictionary<string, string>();
+            parameters = new Dictionary<string, string>();
+        }
+        public QueryParameters(Dictionary<string, string> queryParameters)
+        {
+            parameters = queryParameters;
         }
         public QueryParameters(string queryString, char paramSeparator = '&') : this()
         {
@@ -53,11 +57,11 @@ namespace WebHelpers.Uri
         }
         public bool ContainsParam(string name)
         {
-            return this.parameters.ContainsKey(name);
+            return parameters.ContainsKey(name);
         }
         public string GetParam(string name)
         {
-            if (this.parameters.TryGetValue(name, out string value)) {
+            if (parameters.TryGetValue(name, out string value)) {
                 return value;
             }
             return null;
@@ -70,8 +74,8 @@ namespace WebHelpers.Uri
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (var param in this.parameters) {
-                sb.Append(String.Format("{0}={1}&",
+            foreach (var param in parameters) {
+                sb.Append(string.Format("{0}={1}&",
                     WebUtility.UrlEncode(param.Key),
                     WebUtility.UrlEncode(param.Value)
                 ));
