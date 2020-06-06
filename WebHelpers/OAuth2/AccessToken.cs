@@ -10,6 +10,27 @@ namespace WebHelpers.OAuth2
             CreateTime = DateTime.Now;
         }
 
+        public static TokenSuccess FromPrimitives(
+            in string accessToken,
+            in string tokenType,
+            in int expiresIn,
+            in string refreshToken = null,
+            long createTicks = -1
+        ) {
+            if (createTicks < 0)
+            {
+                createTicks = DateTime.Now.Ticks;
+            }
+            return new TokenSuccess
+            {
+                CreateTime = new DateTime(createTicks),
+                AccessToken = accessToken,
+                Type = tokenType,
+                Lifetime = expiresIn,
+                RefreshToken = refreshToken
+            };
+        }
+
         [JsonProperty("access_token")]
         public string AccessToken {
             get;
