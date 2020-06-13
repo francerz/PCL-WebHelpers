@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard1.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.7</Version>
+    <Version>0.1.8</Version>
     <PackageId>PCL-WebHelpers</PackageId>
     <Authors>Fran CZ</Authors>
     <Product>PCL-WebHelpers</Product>

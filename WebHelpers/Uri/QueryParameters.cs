@@ -20,13 +20,22 @@ namespace WebHelpers.Uri
         {
             parameters = new Dictionary<string, string>();
         }
-        public QueryParameters(Dictionary<string, string> queryParameters)
+        public QueryParameters(Dictionary<string, string> queryParameters) : this()
         {
-            parameters = queryParameters;
+			if (queryParameters == null) {
+				return;
+			}
+			parameters = queryParameters;
         }
         public QueryParameters(string queryString, char paramSeparator = '&') : this()
         {
-            var queryParameters = queryString.Split(paramSeparator);
+			if (queryString == null) {
+				return;
+			}
+			if (queryString[0] == '?') {
+				queryString = queryString.Substring(1);
+			}
+			var queryParameters = queryString.Split(paramSeparator);
             foreach (var qp in queryParameters) {
                 var qp2 = qp.Split('=');
                 this.Add(
@@ -80,8 +89,14 @@ namespace WebHelpers.Uri
                     WebUtility.UrlEncode(param.Value)
                 ));
             }
-            sb.Remove(sb.Length - 1, 1);
+            if (sb.Length > 1) {
+                sb.Remove(sb.Length - 1, 1);
+			}
             return sb.ToString();
         }
-    }
+		public override bool Equals(object obj)
+		{
+            return (ToString() == obj.ToString());
+		}
+	}
 }
