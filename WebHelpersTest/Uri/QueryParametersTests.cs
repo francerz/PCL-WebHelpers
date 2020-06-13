@@ -8,7 +8,7 @@ namespace WebHelpersTest.Uri
 	public class QueryParametersTests
 	{
 		[TestMethod]
-		public void TestToStringEmpty()
+		public void TestToString()
 		{
 			var qp = new QueryParameters();
 
@@ -33,6 +33,32 @@ namespace WebHelpersTest.Uri
 			var actual = new QueryParameters(v);
 
 			Assert.AreEqual(expected, actual);
+		}
+		[TestMethod]
+		public void TestNewEmptyString()
+		{
+			var expected = new QueryParameters();
+
+			var actual = new QueryParameters(string.Empty);
+
+			Assert.AreEqual(expected, actual);
+		}
+		[TestMethod]
+		public void TestNewStringQuestion()
+		{
+			var expected = new QueryParameters();
+
+			var actual = new QueryParameters("?");
+
+			Assert.AreEqual(expected, actual);
+		}
+		[TestMethod]
+		public void TestNewStringAttrSingle()
+		{
+
+			var actual = new QueryParameters("attr1");
+
+			Assert.AreEqual("attr1", actual.ToString());
 		}
 	}
 }

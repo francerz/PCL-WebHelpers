@@ -29,20 +29,30 @@ namespace WebHelpers.Uri
         }
         public QueryParameters(string queryString, char paramSeparator = '&') : this()
         {
-			if (queryString == null) {
+			if (string.IsNullOrEmpty(queryString)) {
 				return;
 			}
 			if (queryString[0] == '?') {
 				queryString = queryString.Substring(1);
 			}
+            if (queryString == string.Empty) {
+                return;
+			}
 			var queryParameters = queryString.Split(paramSeparator);
             foreach (var qp in queryParameters) {
                 var qp2 = qp.Split('=');
-                this.Add(
-                    WebUtility.UrlDecode(qp2[0]),
-                    WebUtility.UrlDecode(qp2[1]),
-                    true
-                );
+                if (qp2.Length == 2) {
+                    this.Add(
+                        WebUtility.UrlDecode(qp2[0]),
+                        WebUtility.UrlDecode(qp2[1]),
+                        true
+                    );
+				} else {
+                    this.Add(
+                        WebUtility.UrlDecode(qp2[0]),
+                        null
+                    );
+				}
             }
         }
 
@@ -84,6 +94,12 @@ namespace WebHelpers.Uri
         {
             StringBuilder sb = new StringBuilder();
             foreach (var param in parameters) {
+                if (param.Value == null) {
+                    sb.Append(string.Format("{0}&",
+                        WebUtility.UrlEncode(param.Key)
+                    ));
+                    continue;
+				}
                 sb.Append(string.Format("{0}={1}&",
                     WebUtility.UrlEncode(param.Key),
                     WebUtility.UrlEncode(param.Value)
